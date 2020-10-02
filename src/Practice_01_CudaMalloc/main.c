@@ -6,7 +6,7 @@
 
 #include <cuda_runtime.h>
 
-#define SAMPLE_IMG "../resources/hwaseong_fortress_640x480.jpeg"
+#define SAMPLE_IMG "../../resources/hwaseong_fortress_640x480.jpeg"
 
 void cudaMallocTest()
 {
