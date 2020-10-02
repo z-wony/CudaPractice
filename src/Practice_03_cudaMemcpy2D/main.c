@@ -95,7 +95,7 @@ void imageCopyBetweenGPU(gpuMemory *srcMem, gpuMemory *dstMem)
         srcMem->pitch,              // Pitch size of src
         srcMem->widthByte,          // Width size of src
         srcMem->height,
-        cudaMemcpyHostToDevice); // Direction of copy (IMPORTANT)
+        cudaMemcpyDeviceToDevice); // Direction of copy (IMPORTANT)
     printf("====================================================\n\n");
 }
 
