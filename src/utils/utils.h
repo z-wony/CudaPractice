@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void write_JPEG_file(const char * filename, int quality, unsigned char *rgb_buffer, int image_width, int image_height);
+void write_JPEG_file(const char *filename, int quality, unsigned char *rgb_buffer, int image_width, int image_height);
 
 /*
  * @remarks buffer_rgb must be released by free
