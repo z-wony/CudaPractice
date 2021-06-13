@@ -144,8 +144,10 @@ void _createYMap(int width, int height, Npp32f **yMap, int *steps)
 
 void remapImageOneFourth(gpuMemory *srcMem, gpuMemory *dstMem)
 {
-    int dstWidth = dstMem->widthByte / 3;
-    int dstHeight = dstMem->height;
+    int srcWidth = (int)srcMem->widthByte / 3;
+    int srcHeight = (int)srcMem->height;
+    int dstWidth = (int)dstMem->widthByte / 3;
+    int dstHeight = (int)dstMem->height;
 
     printf("====== Step 5. Cteare X Map ======\n");
     Npp32f *xMap = NULL;
@@ -159,9 +161,9 @@ void remapImageOneFourth(gpuMemory *srcMem, gpuMemory *dstMem)
     _createYMap(dstWidth, dstHeight, &yMap, &yMapSteps);
     printf("====================================================\n\n");
 
-    NppiSize srcSize = { (int)srcMem->widthByte / 3, (int)srcMem->height };
-    NppiRect srcRoi = { 0, 0, srcSize.width, srcSize.height };
-    NppiSize dstSize = { (int)dstMem->widthByte / 3, (int)dstMem->height };
+    NppiSize srcSize = { srcWidth, srcHeight };
+    NppiRect srcRoi = { 0, 0, srcWidth, srcHeight };
+    NppiSize dstSize = { dstWidth, dstHeight };
 
     printf("====== Step 7. Try Remap (nppiRemap_8u_C3R) ======\n");
     NppStatus ret = nppiRemap_8u_C3R(srcMem->memory,
