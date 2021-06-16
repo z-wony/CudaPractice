@@ -157,7 +157,7 @@ void _createYMap(int width, int height, Npp32f **yMap, int *steps)
 }
 
 
-void remapImageFlipHorizontal(gpuMemory *srcMem, gpuMemory *dstMem)
+void remapImageToDiamond(gpuMemory *srcMem, gpuMemory *dstMem)
 {
     int dstWidth = dstMem->widthByte / 3;
     int dstHeight = dstMem->height;
@@ -232,7 +232,7 @@ int main()
     mem2.height = mem1.height;
     allocDestMemory(&mem2);
 
-    remapImageFlipHorizontal(&mem1, &mem2);
+    remapImageToDiamond(&mem1, &mem2);
 
     imageWriteToGPU(&mem2, "output.jpg");
 
